@@ -10,7 +10,7 @@ import base64
 from your_pdf_utils import generate_pdf_report  # You must have this function ready
 
 # --- CONFIG ---
-st.set_page_config(page_title="SCADA Well Analysis Assistant", layout="centered")
+st.set_page_config(page_title="LLM-powered SCADA Well Diagnosis Assistant", layout="centered")
 
 CSV_FILE = "scada_dataset.csv"
 API_KEY = "AIzaSyD2ainAtqFa3NFX2R1f-zdsSLn-F7kfyuI"
