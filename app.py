@@ -89,10 +89,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.image("ongc_logo.png", width=120)
 
 st.markdown(
-    "<h1 style='text-align: center; color: #8B0000;'>LLM-based Fault Diagnosis Assistant for SCADA Communication</h1>",
+    "<h1 style='text-align: center; color: #8B0000;'>LLM-SCADA Diagnosis Assistant</h1>",
     unsafe_allow_html=True
 )
-st.markdown("---")
+
 
 # --- MAIN APP START ---
 st.title("🔍 SCADA Well Analysis Assistant")
