@@ -1,3 +1,6 @@
-git add requirements.txt
-git commit -m "Add requirements.txt"
-git push
+streamlit
+pandas
+matplotlib
+openai
+google-generativeai
+rich
