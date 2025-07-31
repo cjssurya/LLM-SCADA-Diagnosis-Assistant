@@ -1,6 +1,7 @@
 streamlit
 pandas
 matplotlib
-openai
 google-generativeai
+openai
 rich
+fpdf
