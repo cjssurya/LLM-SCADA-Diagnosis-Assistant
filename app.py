@@ -84,52 +84,15 @@ def plot_graphs(well):
     st.pyplot(fig)
     return fig
 
-# --- EMBED LOGO ---
-def get_image_base64(image_path):
-    with open(image_path, "rb") as f:
-        data = f.read()
-        return base64.b64encode(data).decode()
+# --- LOGO AND TITLE (non-fixed position) ---
+st.markdown("<br>", unsafe_allow_html=True)
+st.image("ongc_logo.png", width=120)
 
-logo_base64 = get_image_base64("ongc_logo.png")
-
-# --- HEADER HTML ---
-# --- HEADER HTML ---
-st.markdown(f"""
-    <style>
-        .header {{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #8B0000;
-            padding: 15px 20px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }}
-        .header img {{
-            height: 50px;
-            margin-right: 15px;
-        }}
-        .header h1 {{
-            font-size: 26px;
-            color: white;
-            margin: 0;
-        }}
-        .main-content {{
-            margin-top: 100px; /* INCREASED FROM 80px TO 120px */
-            padding: 1.5rem;
-        }}
-        #MainMenu, footer {{visibility: hidden;}}
-        body {{ overflow-x: hidden; }}
-    </style>
-    <div class="header">
-        <img src="data:image/png;base64,{logo_base64}" />
-        <h1>ONGC SCADA Well Analysis Assistant</h1>
-    </div>
-    <div class="main-content">
-""", unsafe_allow_html=True)
+st.markdown(
+    "<h1 style='text-align: center; color: #8B0000;'>LLM-based Fault Diagnosis Assistant for SCADA Communication</h1>",
+    unsafe_allow_html=True
+)
+st.markdown("---")
 
 # --- MAIN APP START ---
 st.title("🔍 SCADA Well Analysis Assistant")
