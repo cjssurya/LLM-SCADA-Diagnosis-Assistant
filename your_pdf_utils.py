@@ -1,5 +1,9 @@
 from fpdf import FPDF
 import matplotlib.pyplot as plt
+import unicodedata
+
+def strip_unicode(text):
+    return unicodedata.normalize('NFKD', str(text)).encode('ascii', 'ignore').decode('ascii')
 
 def generate_pdf_report(well, analysis, graph_fig, filename):
     pdf = FPDF()
@@ -13,7 +17,8 @@ def generate_pdf_report(well, analysis, graph_fig, filename):
     pdf.set_font("Arial", size=11)
     pdf.ln(5)
     for key, val in well.items():
-        pdf.cell(200, 8, f"{key}: {val}", ln=1)
+        line = f"{strip_unicode(key)}: {strip_unicode(val)}"
+        pdf.cell(200, 8, txt=line, ln=1)
 
     # Save and insert graph
     img_path = "temp_graph.png"
@@ -22,6 +27,7 @@ def generate_pdf_report(well, analysis, graph_fig, filename):
     pdf.ln(80)
 
     # AI Response
-    pdf.multi_cell(0, 10, analysis)
+    pdf.multi_cell(0, 10, strip_unicode(analysis))
 
     pdf.output(filename)
+
