@@ -1,6 +1,7 @@
 streamlit
 python-dotenv
 psycopg2-binary
+bcrypt
 openai
 pandas
 numpy
