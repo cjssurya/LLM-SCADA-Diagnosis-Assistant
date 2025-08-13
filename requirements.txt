@@ -3,6 +3,7 @@ python-dotenv
 psycopg2-binary
 bcrypt
 fpdf
+matplotlib
 openai
 pandas
 numpy
