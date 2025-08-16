@@ -1,11 +1,12 @@
 from fpdf import FPDF
 import matplotlib.pyplot as plt
+from io import BytesIO
 
-def generate_pdf_report(well, analysis, graph_fig, output_path_or_buffer):
+def generate_pdf_report(well, analysis, graph_fig, buffer: BytesIO):
     pdf = FPDF()
     pdf.add_page()
     
-    # Use a Unicode font (make sure DejaVuSans.ttf is in your project folder)
+    # Unicode font (make sure DejaVuSans.ttf is in your project folder)
     pdf.add_font("DejaVu", "", "DejaVuSans.ttf", uni=True)
     pdf.set_font("DejaVu", size=12)
     
@@ -24,7 +25,9 @@ def generate_pdf_report(well, analysis, graph_fig, output_path_or_buffer):
     pdf.image(img_path, x=30, y=pdf.get_y(), w=150)
     pdf.ln(80)
 
-    # AI Response (supports Unicode now)
+    # AI Response (supports Unicode)
     pdf.multi_cell(0, 10, analysis)
 
-    pdf.output(output_path_or_buffer)
+    # Save PDF into BytesIO buffer
+    pdf_bytes = pdf.output(dest="S").encode("latin1")
+    buffer.write(pdf_bytes)
