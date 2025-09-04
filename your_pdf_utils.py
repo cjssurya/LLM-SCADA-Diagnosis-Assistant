@@ -29,5 +29,5 @@ def generate_pdf_report(well, analysis, graph_fig, buffer: BytesIO):
     pdf.multi_cell(0, 10, analysis)
 
     # Save PDF into BytesIO buffer
-    pdf_bytes = pdf.output(dest="S").encode("latin1")
+    pdf_bytes = pdf.output(dest="S").encode("latin1") if isinstance(pdf.output(dest="S"), str) else pdf.output(dest="S")
     buffer.write(pdf_bytes)
